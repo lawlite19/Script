@@ -69,7 +69,10 @@ else
 	exit 0
 fi
 
+sysctl -p
+
 # Step 6: configure iptables
+EXTIF=$(ifconfig | head -n 1 | grep -v lo | cut -d ' ' -f 1)
 iptables -A INPUT -p TCP -i $EXTIF --dport  1723  --sport 1024:65534 -j ACCEPT
 iptables -t nat -A POSTROUTING -o $EXTIF -s 192.168.10.0/16 -j MASQUERADE
 iptables -I FORWARD -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1356
