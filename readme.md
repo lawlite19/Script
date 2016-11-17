@@ -7,7 +7,8 @@ Linux脚本文件
  - 下载：`wget https://raw.githubusercontent.com/lawlite19/Script/master/shell/vpn_setup.sh`
  - 执行权限：`chmod +x vpn_setup.sh`
  - 执行：`./vpn_setup.sh`
-- 没有错误的话执行结果：
+ - 注意是在`CentOS6.5`系统下
+- (3)没有错误的话执行结果：
 ![enter description here][1]
 
 
