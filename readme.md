@@ -10,4 +10,5 @@ Linux脚本文件
 - 没有错误的话执行结果：
 ![enter description here][1]
 
-  [1]: ./images/vpn_setup_01.png "vpn_setup_01.png"
+
+  [1]: shell/images/vpn_setup_01.png "vpn_setup_01.png"
