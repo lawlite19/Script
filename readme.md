@@ -8,3 +8,6 @@ Linux脚本文件
  - 执行权限：`chmod +x vpn_setup.sh`
  - 执行：`./vpn_setup.sh`
 - 没有错误的话执行结果：
+![enter description here][1]
+
+  [1]: ./images/vpn_setup_01.png "vpn_setup_01.png"
