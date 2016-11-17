@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Author: bob
+# Author: Wang Yongzhi(bob)
 # Date:   2016.11.16
-echo -e "                   Setup VPN..."
 echo -e "-----------------------------------------------"
+echo -e "|                   Setup VPN...              |"
+echo -e "-----------------------------------------------\n"
 
 # Step 1:install ppp and pptpd
-yum install ppp pptpd
+
+yum install -y ppp
+yum install -y pptpd
 
 if [ $? -eq 0 ]
 then
@@ -47,7 +50,7 @@ fi
 while true
 do
 	read -p "Please input userName:" userName
-	read -p "Please Input passwd:  "  Passwd
+	read -p "Please input passwd:  " Passwd
 	echo $userName	pptpd	$Passwd \* >> /etc/ppp/chap-secrets
 	read -p "continue?y/N:         " flag
 	if [ $flag = "n" -o $flag = "N" ]
@@ -72,12 +75,14 @@ fi
 sysctl -p
 
 # Step 6: configure iptables
+
 EXTIF=$(ifconfig | head -n 1 | grep -v lo | cut -d ' ' -f 1)
 iptables -A INPUT -p TCP -i $EXTIF --dport  1723  --sport 1024:65534 -j ACCEPT
 iptables -t nat -A POSTROUTING -o $EXTIF -s 192.168.10.0/16 -j MASQUERADE
 iptables -I FORWARD -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1356
 
 # Step 7: configure when start server to start pptpd and iptables
+
 service iptables save
 service iptables restart
 service pptpd start 
