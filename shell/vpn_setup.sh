@@ -34,8 +34,8 @@ fi
 
 # Step 3:configure pptpd IP
 
-echo  localip 192.168.10.1 >> /etc/pptpd.conf
-echo  remoteip 192.168.10.2-254 >> /etc/pptpd.conf
+echo  localip 192.168.0.1 >> /etc/pptpd.conf
+echo  remoteip 192.168.0.2-254 >> /etc/pptpd.conf
 
 if [ $? -eq 0 ]
 then
@@ -78,7 +78,7 @@ sysctl -p
 
 EXTIF=$(ifconfig | head -n 1 | grep -v lo | cut -d ' ' -f 1)
 iptables -A INPUT -p TCP -i $EXTIF --dport  1723  --sport 1024:65534 -j ACCEPT
-iptables -t nat -A POSTROUTING -o $EXTIF -s 192.168.10.0/16 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o $EXTIF -s 192.168.0.0/24 -j MASQUERADE
 iptables -I FORWARD -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1356
 
 # Step 7: configure when start server to start pptpd and iptables
