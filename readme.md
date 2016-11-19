@@ -8,8 +8,10 @@ Linux脚本文件
  - 执行权限：`chmod +x vpn_setup.sh`
  - 执行：`./vpn_setup.sh`
  - 注意是在`CentOS6.5`系统下
+
 - (3)没有错误的话执行结果：
 ![enter description here][1]
 
+- (4)搭建的详细过程:[点击查看](/shell)
 
   [1]: shell/images/vpn_setup_01.png "vpn_setup_01.png"
