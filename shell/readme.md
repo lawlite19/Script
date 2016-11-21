@@ -66,7 +66,10 @@ chkconfig pptpd on
 
 - 对应外网`IP`，设置的用户名和密码 
 
-- 速度是可以的，我也测试了一下国外的服务器，速度非常慢，还不如免费的`VPN`软件，
+- 速度是可以的，   
+![enter description here][3]
+
+- 我也测试了一下国外的服务器，速度非常慢，还不如免费的`VPN`软件，
 
 ### 五、`shell`脚本
 
@@ -194,3 +197,4 @@ echo "                         *"
 
   [1]: ./images/vpn_setup_02.png "vpn_setup_02.png"
   [2]: ./images/vpn_setup_03.png "vpn_setup_03.png"
+  [3]: ./images/vpn_setup_04.png "vpn_setup_04.png"
