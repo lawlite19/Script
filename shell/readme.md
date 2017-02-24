@@ -28,7 +28,7 @@
     remoteip 192.168.0.2-254
 ```
 - 4、配置`VPN`用户名和密码
-`/etc/ppp/chap-secret`文件中加入：
+`/etc/ppp/chap-secrets`文件中加入：
 ```
     userName  pptpd  password  *
 ```
