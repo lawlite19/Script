@@ -77,8 +77,8 @@ sysctl -p
 # Step 6: configure iptables
 
 #EXTIF=$(ifconfig | head -n 1 | grep -v lo | cut -d ' ' -f 1)
-iptables -A INPUT -p TCP -i eth1 --dport  1723  --sport 1024:65534 -j ACCEPT
-iptables -t nat -A POSTROUTING -o eth1 -s 192.168.0.0/24 -j MASQUERADE
+iptables -A INPUT -p TCP -i eth0 --dport  1723  --sport 1024:65534 -j ACCEPT
+iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE
 iptables -I FORWARD -p tcp --syn -i ppp+ -j TCPMSS --set-mss 1356
 
 # Step 7: configure when start server to start pptpd and iptables
